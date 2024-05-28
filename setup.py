@@ -17,10 +17,12 @@ setup(
         'rich_click',
         'simple_term_menu',
         'yaspin',
+        'polib'
     ],
     extras_require={
-        'intl': ['polib','lingua-language-detector','deep_translator','easynmt'],
-        'i18n': ['polib','lingua-language-detector','deep_translator','easynmt']
+        'online': ['lingua-language-detector','deep_translator'],
+        'offline': ['lingua-language-detector','easynmt'],
+        'full': ['lingua-language-detector','deep_translator','easynmt']
     },
     python_requires='>=3.7, <4',
     classifiers=[

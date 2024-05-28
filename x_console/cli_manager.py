@@ -18,24 +18,28 @@ from utils.translator import TranslationService
 #log = logging.getLogger("rich")
 
 class CLIManager:
-    def __init__(self, debug=True, debug_prefix="DEBUG", domain="cli"):
+    def __init__(self, debug=True, debug_prefix="DEBUG", domain="cli", locales_dir=None, color_tokens={}, spinner=["⭐", "✨", "🌟", "🚀"]):
         self.configure_rich_click()
         self.debug = debug
         self.debug_prefix = debug_prefix
         self.domain = domain
         self.target_lang = "en"
         self.console = Console()
-        locales_dir = os.path.join(os.path.dirname(__file__), "translations")
+        if locales_dir is None:
+            locales_dir = os.path.join(os.path.dirname(__file__), "translations")
         self.localizer = Localizer(locale_path=locales_dir, domain=domain, target_lang=self.target_lang, online=True)
         self.translator = TranslationService()
         self.input_text_english = ""
-        self.color_mapping = {
-            "*": "yellow",
-            "_": "i",
-            "|": "dim"
-        }
+        if color_tokens:
+            self.color_mapping = color_tokens
+        else:
+            self.color_mapping = {
+                "*": "yellow",
+                "_": "i",
+                "|": "dim"
+            }
         self._ = self.localizer._
-        self.spinner = Spinner(["⭐", "✨", "🌟", "🚀"], 200)
+        self.spinner = Spinner(spinner, 200)
 
     def configure_rich_click(self):
         """Configure rich_click with all necessary styles and settings."""
