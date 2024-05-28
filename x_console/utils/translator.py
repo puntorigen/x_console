@@ -23,11 +23,6 @@ class TranslationService:
             self.translator_online = DeepGoogleTranslator()
         
         if capabilities['offline_translation']:
-            self._load_translator_offline()
-
-    def _load_translator_offline(self):
-        """Load the offline translator model only when needed."""
-        if self.translator_offline is None:
             from easynmt import EasyNMT
             self.translator_offline = EasyNMT(self.translator_offline_model_name, device='cpu')
 
@@ -45,7 +40,6 @@ class TranslationService:
             raise RuntimeError("Offline translation capability is not available")
 
         try:
-            self._load_translator_offline()
             source_lang = self.detect_language(text)
             if source_lang == target_lang:
                 return text
