@@ -7,8 +7,8 @@ from rich.prompt import Prompt
 from simple_term_menu import TerminalMenu
 #from rich.logging import RichHandler
 from yaspin import yaspin, Spinner
-from utils.localizer import Localizer
-from utils.translator import TranslationService
+from .utils.localizer import Localizer
+from .utils.translator import TranslationService
 
 # setup logging
 #FORMAT = "%(message)s"

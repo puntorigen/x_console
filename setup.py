@@ -4,7 +4,7 @@ setup(
     name='x_console',
     version='0.1.1',
     packages=find_packages(),
-    package_dir={'': 'x_console'},
+    package_dir={'x_console': 'x_console'},
     entry_points={},
     author='Pablo Schaffner',
     author_email='pablo@puntorigen.com',

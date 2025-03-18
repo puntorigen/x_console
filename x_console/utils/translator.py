@@ -1,11 +1,18 @@
 # x_console/utils/translator.py
 
 import warnings
-from x_console import capabilities
-from cache import Cache
+import importlib.util
+from .cache import Cache
 
 # Ignore all warnings from the huggingface_hub.file_download module
 warnings.filterwarnings("ignore", module="huggingface_hub.file_download")
+
+# Check capabilities dynamically rather than importing from x_console
+capabilities = {
+    'language_detection': importlib.util.find_spec('lingua') is not None,
+    'online_translation': importlib.util.find_spec('deep_translator') is not None,
+    'offline_translation': importlib.util.find_spec('easynmt') is not None
+}
 
 if capabilities['language_detection']:
     from lingua import Language, LanguageDetectorBuilder

@@ -1,6 +1,6 @@
 # localizer.py
 import os, polib, gettext
-from translator import TranslationService
+from .translator import TranslationService
 
 class Localizer:
     def __init__(self, locale_path='translations', domain='messages', cache_dir=None, cache_ttl=3600, target_lang='en', online=True):

@@ -1,0 +1,200 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*Welcome to x_console Test Script*\n"
+msgstr ""
+"\n"
+"*Welcome to x_console Test Script*\n"
+
+#. Translated using Online translation.
+msgid "This script demonstrates the main features of x_console."
+msgstr "This script demonstrates the main features of x_console."
+
+#. Translated using Online translation.
+msgid "Let's start with some basic formatting..."
+msgstr "Let's start with some basic formatting..."
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*Text Formatting:*"
+msgstr ""
+"\n"
+"*Text Formatting:*"
+
+#. Translated using Online translation.
+msgid "  • Default: *yellow* text, _italic_ text, and |dim| text"
+msgstr "  • Default: *yellow* text, _italic_ text, and |dim| text"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*Custom Color Tokens:*"
+msgstr ""
+"\n"
+"*Custom Color Tokens:*"
+
+#. Translated using Online translation.
+msgid "  • Custom: *red bold*, #blue#, ~green italic~ and @underlined@!"
+msgstr "  • Custom: *red bold*, #blue#, ~green italic~ and @underlined@!"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*User Input:*"
+msgstr ""
+"\n"
+"*User Input:*"
+
+#. Translated using Online translation.
+msgid "What's your name?"
+msgstr "What's your name?"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*Welcome to x_console Test Script (Non-Interactive)*\n"
+msgstr ""
+"\n"
+"*Welcome to x_console Test Script (Non-Interactive)*\n"
+
+#. Translated using Online translation.
+msgid "(Automatically running without requiring user input)"
+msgstr "(Automatically running without requiring user input)"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*User Input: (Automatic)*"
+msgstr ""
+"\n"
+"*User Input: (Automatic)*"
+
+#. Translated using Online translation.
+msgid "What's your name? [auto-response: Auto User]"
+msgstr "What's your name? [auto-response: Auto User]"
+
+#. Translated using Online translation.
+msgid "Nice to meet you, *{v0}*!"
+msgstr "Nice to meet you, *{v0}*!"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*Selection Menu: (Automatic)*"
+msgstr ""
+"\n"
+"*Selection Menu: (Automatic)*"
+
+#. Translated using Online translation.
+msgid "Please select an option: [auto-selected: Option A]"
+msgstr "Please select an option: [auto-selected: Option A]"
+
+#. Translated using Online translation.
+msgid "You selected: *{v0}*"
+msgstr "You selected: *{v0}*"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*Debug and Warning Messages:*"
+msgstr ""
+"\n"
+"*Debug and Warning Messages:*"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*Processing with Spinner:*"
+msgstr ""
+"\n"
+"*Processing with Spinner:*"
+
+#. Translated using Online translation.
+msgid "Running example process"
+msgstr "Running example process"
+
+#. Translated using Online translation.
+msgid "Step {v0} of {v1}: {v2}..."
+msgstr "Step {v0} of {v1}: {v2}..."
+
+#. Translated using Online translation.
+msgid "Operation completed successfully!"
+msgstr "Operation completed successfully!"
+
+#. Translated using Online translation.
+msgid "Done"
+msgstr "Done"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*Translation Features:*"
+msgstr ""
+"\n"
+"*Translation Features:*"
+
+#. Translated using Online translation.
+msgid "Translation features require additional dependencies."
+msgstr "Translation features require additional dependencies."
+
+#. Translated using Online translation.
+msgid "Install with: pip install \"x_console[online]\" or \"x_console[full]\""
+msgstr "Install with: pip install \"x_console[online]\" or \"x_console[full]\""
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*CLI Commands:*"
+msgstr ""
+"\n"
+"*CLI Commands:*"
+
+#. Translated using Online translation.
+msgid "This package can be used to build CLI apps with rich_click."
+msgstr "This package can be used to build CLI apps with rich_click."
+
+#. Translated using Online translation.
+msgid "(Example command definition omitted)"
+msgstr "(Example command definition omitted)"
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"*Test Summary:*"
+msgstr ""
+"\n"
+"*Test Summary:*"
+
+#. Translated using Online translation.
+msgid "All x_console features have been demonstrated in non-interactive mode."
+msgstr ""
+"All x_console features have been demonstrated in non-interactive mode."
+
+#. Translated using Online translation.
+msgid ""
+"This script can be used for automated testing before publishing the package."
+msgstr ""
+"This script can be used for automated testing before publishing the package."
+
+#. Translated using Online translation.
+msgid ""
+"\n"
+"_Test completed successfully!_\n"
+msgstr ""
+"\n"
+"_Test completed successfully!_\n"
