@@ -11,8 +11,12 @@ class Localizer:
         self.online = online
 
         # Configure gettext
-        gettext.bindtextdomain(domain, locale_path)
-        gettext.textdomain(domain)
+        try:
+            gettext.bindtextdomain(domain, locale_path)
+            gettext.textdomain(domain)
+        except (AttributeError, OSError):
+            # On some platforms, bindtextdomain might not be available
+            pass
 
     def translate(self, text):
         """Translate the given text using gettext with fallback translation."""
@@ -22,10 +26,13 @@ class Localizer:
 
         if not translated_text or translated_text == text: # No translation found in .mo files
             #print(f"Translating text: {text} to '{self.target_lang}'")
-            translated_text = self.translator.translate(text, target_lang=self.target_lang, online=self.online)
-            #print(f"!!Translated text: {translated_text}")
-            translation_method = "Online" if self.online else "Offline"
-            self.update_po_file(text, translated_text, self.target_lang, translation_method)
+            try:
+                translated_text = self.translator.translate(text, target_lang=self.target_lang, online=self.online)
+                translation_method = "Online" if self.online else "Offline"
+                self.update_po_file(text, translated_text, self.target_lang, translation_method)
+            except Exception:
+                # If translation fails, return the original text
+                translated_text = text
 
         return translated_text
 

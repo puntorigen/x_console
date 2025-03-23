@@ -27,8 +27,16 @@ class CLIManager:
         self.console = Console()
         if locales_dir is None:
             locales_dir = os.path.join(os.path.dirname(__file__), "translations")
-        self.localizer = Localizer(locale_path=locales_dir, domain=domain, target_lang=self.target_lang, online=True)
-        self.translator = TranslationService()
+        try:
+            self.localizer = Localizer(locale_path=locales_dir, domain=domain, target_lang=self.target_lang, online=True)
+            self.translator = TranslationService()
+            self.translation_available = True
+        except Exception:
+            # Handle case where translation modules are not available
+            self.translation_available = False
+            self.localizer = None
+            self.translator = None
+            
         self.input_text_english = ""
         if color_tokens:
             self.color_mapping = color_tokens
@@ -38,9 +46,15 @@ class CLIManager:
                 "_": "i",
                 "|": "dim"
             }
-        self._ = self.localizer._
+        # Define the translation function
+        if self.translation_available:
+            self._ = self.localizer._
+        else:
+            # Simple passthrough function when translation is not available
+            self._ = lambda text, *args, **kwargs: text.format(*args, **kwargs) if args or kwargs else text
+            
         self.spinner = Spinner(spinner, 200)
-        if output_language:
+        if output_language and self.translation_available:
             self.setup_language(language=output_language)
 
     def configure_rich_click(self):
@@ -159,10 +173,16 @@ class CLIManager:
 
     def translate(self, text, target_lang="en", online=True):
         """Translate text (to english) using the shared TranslationService."""
+        if not self.translation_available:
+            return text  # Just return the original text if translation is not available
+            
         target_lang = target_lang if target_lang else self.target_lang
-        detected_lang = self.translator.detect_language(text)
-        if target_lang != detected_lang:
-            return self.translator.translate(text, target_lang=target_lang, online=online)
+        try:
+            detected_lang = self.translator.detect_language(text)
+            if target_lang != detected_lang:
+                return self.translator.translate(text, target_lang=target_lang, online=online)
+        except Exception:
+            pass  # If translation fails, just return the original text
         return text
     
     def log(self, message, *args, **kwargs):
@@ -198,6 +218,9 @@ class CLIManager:
 
     def setup_language(self, input_text="", language=None):
         """Detect and set language for output based on input or specified language."""
+        if not self.translation_available:
+            return  # Skip if translation is not available
+            
         if language:
             self.target_lang = language
         else:
